@@ -70,13 +70,22 @@ struct HistoryView: View {
             }
             .padding([.leading, .top, .trailing], 6)
 
+            #if os(iOS)
             List(selection: store.binding(value: \.selection, action: /Action.selection)) {
                 ForEach(store.value.history, id: \.self) {
                     RowView(row: $0)
                 }
             }
+            #else
+            List(selection: store.binding(value: \.selection, action: /Action.selection)) {
+                ForEach(store.value.history, id: \.self) {
+                    RowView(row: $0)
+                }
+            }
+            .onDrop(of: [uti], isTargeted: $targeted, perform: dropHandler)
+            #endif
+
         }
-//        .frame(minWidth: 500, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
     }
 
 }
@@ -86,6 +95,7 @@ extension HistoryView {
     struct State {
         var history: [Step] = []
         var selection: Step? = nil
+        var broadcastEnabled = false
 
         func stepBefore(_ step: Step) -> Step? {
             guard
@@ -158,9 +168,11 @@ extension HistoryView {
                         else { return [ .sync { .newState(nil) } ] }
                     state.selection = next
                     return [ .sync { .newState(next.resultingState) } ]
-                case .newState(let state):
-                    let msg = Message(kind: .reset, action: "", state: state)
-                    Transceiver.broadcast(msg)
+                case .newState(let newState):
+                    if state.broadcastEnabled {
+                        let msg = Message(kind: .reset, action: "", state: newState)
+                        Transceiver.broadcast(msg)
+                    }
                     return []
             }
         }
@@ -168,24 +180,14 @@ extension HistoryView {
 }
 
 
-struct Sample {
-    static var history: [Step] {
-        [0, 1, 2, 3].map({
-            Step(index: $0,
-                action: "action \($0)",
-                resultingState: Data("foo".utf8))
-        })
-    }
-}
-
-
 extension HistoryView {
-    static func store(history: [Step]) -> Store<State, Action> {
-        return Store(initialValue: State(history: history), reducer: reducer)
+    static func store(history: [Step], broadcastEnabled: Bool) -> Store<State, Action> {
+        return Store(initialValue: State(history: history, broadcastEnabled: broadcastEnabled),
+                     reducer: reducer)
     }
 
-    init(history: [Step]) {
-        self.store = Self.store(history: history)
+    init(history: [Step], broadcastEnabled: Bool) {
+        self.store = Self.store(history: history, broadcastEnabled: broadcastEnabled)
     }
 }
 
@@ -210,20 +212,39 @@ extension UUID {
 }
 
 
-struct HistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryView(history: Sample.history)
+#if os(macOS)
+let uti = "public.utf8-plain-text"
+
+func dropHandler(_ items: [NSItemProvider]) -> Bool {
+    guard let item = items.first else { return false }
+    print(item.registeredTypeIdentifiers)
+    item.loadItem(forTypeIdentifier: uti, options: nil) { (data, error) in
+        DispatchQueue.main.async {
+            if let data = data as? Data {
+                historyStore.send(.newState(data))
+            }
+        }
+    }
+    return true
+}
+#endif
+
+
+extension HistoryView {
+    struct Sample {
+        static var history: [Step] {
+            [0, 1, 2, 3].map({
+                Step(index: $0,
+                     action: "action \($0)",
+                    resultingState: Data("foo".utf8))
+            })
+        }
     }
 }
 
-var historyStore = HistoryView.store(history: [])
-//var historyStore = HistoryView.store(history: Sample.history)
 
-
-extension RangeReplaceableCollection where Element: Equatable {
-    @discardableResult
-    mutating func removeFirst(value: Element) -> Element? {
-        guard let idx = firstIndex(of: value) else { return nil }
-        return remove(at: idx)
+struct HistoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        HistoryView(history: HistoryView.Sample.history, broadcastEnabled: false)
     }
 }

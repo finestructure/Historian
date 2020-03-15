@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+var historyStore = HistoryView.store(history: [], broadcastEnabled: true)
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
