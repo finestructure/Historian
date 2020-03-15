@@ -14,6 +14,10 @@
 		5A278033241E523100D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A278032241E523100D015F2 /* Preview Assets.xcassets */; };
 		5A278036241E523100D015F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A278034241E523100D015F2 /* LaunchScreen.storyboard */; };
 		5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A27803E241E52FA00D015F2 /* MultipeerKit */; };
+		5A278042241E55AC00D015F2 /* Transceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278041241E55AC00D015F2 /* Transceiver.swift */; };
+		5A278045241E55E900D015F2 /* CompArch in Frameworks */ = {isa = PBXBuildFile; productRef = 5A278044241E55E900D015F2 /* CompArch */; };
+		5A278047241E572F00D015F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278046241E572F00D015F2 /* Message.swift */; };
+		5A278049241E577700D015F2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278048241E577700D015F2 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,9 @@
 		5A278032241E523100D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A278035241E523100D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A278037241E523100D015F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A278041241E55AC00D015F2 /* Transceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transceiver.swift; sourceTree = "<group>"; };
+		5A278046241E572F00D015F2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5A278048241E577700D015F2 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */,
+				5A278045241E55E900D015F2 /* CompArch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +66,15 @@
 		5A278028241E522F00D015F2 /* Historian */ = {
 			isa = PBXGroup;
 			children = (
+				5A278037241E523100D015F2 /* Info.plist */,
 				5A278029241E522F00D015F2 /* AppDelegate.swift */,
-				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
 				5A27802D241E522F00D015F2 /* ContentView.swift */,
+				5A278048241E577700D015F2 /* HistoryView.swift */,
+				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
 				5A27802F241E523100D015F2 /* Assets.xcassets */,
 				5A278034241E523100D015F2 /* LaunchScreen.storyboard */,
-				5A278037241E523100D015F2 /* Info.plist */,
 				5A278031241E523100D015F2 /* Preview Content */,
+				5A278040241E559700D015F2 /* Transceiver */,
 			);
 			path = Historian;
 			sourceTree = "<group>";
@@ -75,6 +85,15 @@
 				5A278032241E523100D015F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5A278040241E559700D015F2 /* Transceiver */ = {
+			isa = PBXGroup;
+			children = (
+				5A278046241E572F00D015F2 /* Message.swift */,
+				5A278041241E55AC00D015F2 /* Transceiver.swift */,
+			);
+			path = Transceiver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +114,7 @@
 			name = Historian;
 			packageProductDependencies = (
 				5A27803E241E52FA00D015F2 /* MultipeerKit */,
+				5A278044241E55E900D015F2 /* CompArch */,
 			);
 			productName = Historian;
 			productReference = 5A278026241E522F00D015F2 /* Historian.app */;
@@ -126,6 +146,7 @@
 			mainGroup = 5A27801D241E522F00D015F2;
 			packageReferences = (
 				5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */,
+				5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */,
 			);
 			productRefGroup = 5A278027241E522F00D015F2 /* Products */;
 			projectDirPath = "";
@@ -155,7 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */,
+				5A278049241E577700D015F2 /* HistoryView.swift in Sources */,
 				5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */,
+				5A278047241E572F00D015F2 /* Message.swift in Sources */,
+				5A278042241E55AC00D015F2 /* Transceiver.swift in Sources */,
 				5A27802E241E522F00D015F2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +384,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/finestructure/CompArch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -367,6 +399,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */;
 			productName = MultipeerKit;
+		};
+		5A278044241E55E900D015F2 /* CompArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */;
+			productName = CompArch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
