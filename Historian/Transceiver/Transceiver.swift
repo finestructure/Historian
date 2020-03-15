@@ -27,7 +27,7 @@ enum Transceiver {
 
     static private var transceiver: MultipeerTransceiver = {
         var config = MultipeerConfiguration.default
-        config.serviceType = "Historian"
+        config.serviceType = serviceType
         config.security.encryptionPreference = .required
         return MultipeerTransceiver(configuration: config)
     }()

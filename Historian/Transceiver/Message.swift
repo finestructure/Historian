@@ -16,5 +16,5 @@ struct Message: Hashable, Codable {
 
     let kind: Command
     let action: String
-    let state: Data
+    let state: Data?
 }

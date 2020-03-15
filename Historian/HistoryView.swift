@@ -22,16 +22,18 @@ struct Step: Identifiable, Hashable {
 struct RowView: View {
     var row: Step
     var body: some View {
-        HStack {
+        let stack = HStack {
             Text("\(row.index)")
                 .frame(width: 30, alignment: .trailing)
             Text(row.action)
-            Spacer()
-            Button(action: { historyStore.send(.selection(self.row)) },
-                   label: {
-                    Image(systemName: "square.and.arrow.up")
-            })
         }
+        #if os(macOS)
+        return stack.onDrag {
+            NSItemProvider(object: String(decoding: self.row.resultingState, as: UTF8.self) as NSString)
+        }
+        #else
+        return stack
+        #endif
     }
 }
 
@@ -42,20 +44,31 @@ struct HistoryView: View {
 
     var body: some View {
         VStack {
-//            HStack {
-//                Spacer()
-//
-//                Button(action: { self.store.send(.deleteTapped) }, label: {
-//                    Text("Delete")
-//                })
-//                Button(action: { self.store.send(.backTapped) }, label: {
-//                    Text("←")
-//                })
-//                Button(action: { self.store.send(.forwardTapped) }, label: {
-//                    Text("→")
-//                })
-//            }
-//            .padding([.top, .trailing], 6)
+            HStack {
+                Button(action: { self.store.send(.deleteTapped) }, label: {
+                    #if os(iOS)
+                    Image(systemName: "trash").padding()
+                    #else
+                    Text("Delete")
+                    #endif
+                })
+                Spacer()
+                Button(action: { /*self.store.send(.backTapped)*/ }, label: {
+                    #if os(iOS)
+                    Image(systemName: "backward").padding()
+                    #else
+                    Text("←")
+                    #endif
+                })
+                Button(action: { /*self.store.send(.forwardTapped)*/ }, label: {
+                    #if os(iOS)
+                    Image(systemName: "forward").padding()
+                    #else
+                    Text("→")
+                    #endif
+                })
+            }
+            .padding([.leading, .top, .trailing], 6)
 
             List(selection: store.binding(value: \.selection, action: /Action.selection)) {
                 ForEach(store.value.history, id: \.self) {
@@ -94,38 +107,39 @@ extension HistoryView {
     }
 
     enum Action {
-        case appendStep(String, Data)
+        case appendStep(String, Data?)
         case selection(Step?)
-//        case deleteTapped
+        case deleteTapped
 //        case backTapped
 //        case forwardTapped
-        case newState(Data)
+        case newState(Data?)
     }
 
     static var reducer: Reducer<State, Action> {
         return { state, action in
             switch action {
-                case let .appendStep(stepAction, postActionState):
+                case let .appendStep(stepAction, .some(postActionState)):
                     let newStep = Step(index: state.history.count,
                                        action: stepAction,
                                        resultingState: postActionState)
                     state.history.insert(newStep, at: 0)
                     state.selection = newStep
                     return []
+                case .appendStep(_, .none):
+                    // ignore empty data when appending
+                    return []
                 case .selection(let step):
                     state.selection = step
                     guard let step = step else { return [] }
                     return [ .sync { .newState(step.resultingState) } ]
-//                case .deleteTapped:
-//                    guard let current = state.selection else { return [] }
-//                    defer { state.history.removeFirst(value: current) }
-//                    guard
-//                        let previous = state.stepBefore(current),
-//                        let newState = previous.contentViewState()
-//                        // we're at the start / on the first entry
-//                        else { return [ .sync { .newState(ContentView.State()) } ] }
-//                    state.selection = previous
-//                    return [ .sync { .newState(newState) } ]
+                case .deleteTapped:
+                    guard let current = state.selection else { return [] }
+                    defer { state.history.removeFirst(value: current) }
+                    guard let previous = state.stepBefore(current)
+                        // we're at the start / on the first entry
+                        else { return [ .sync { .newState(nil) } ] }
+                    state.selection = previous
+                    return [ .sync { .newState(previous.resultingState) } ]
 //                case .backTapped:
 //                    guard
 //                        let current = state.selection,
@@ -207,3 +221,12 @@ struct HistoryView_Previews: PreviewProvider {
 
 var historyStore = HistoryView.store(history: [])
 //var historyStore = HistoryView.store(history: Sample.history)
+
+
+extension RangeReplaceableCollection where Element: Equatable {
+    @discardableResult
+    mutating func removeFirst(value: Element) -> Element? {
+        guard let idx = firstIndex(of: value) else { return nil }
+        return remove(at: idx)
+    }
+}
