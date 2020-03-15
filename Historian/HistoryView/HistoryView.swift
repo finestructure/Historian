@@ -214,23 +214,24 @@ extension HistoryView {
 }
 
 
-public func record<Value: Encodable, Action>(_ reducer: @escaping Reducer<Value, Action>) -> Reducer<Value, Action> {
-    return { value, action in
-        let effects = reducer(&value, action)
-        let newValue = value
-        return [.fireAndForget {
-            if let data = try? JSONEncoder().encode(newValue) {
-                historyStore.send(HistoryView.Action.appendStep("\(action)", data))
+extension HistoryView {
+    #if os(macOS)
+    var uti: String { "public.utf8-plain-text" }
+
+    func dropHandler(_ items: [NSItemProvider]) -> Bool {
+        guard let item = items.first else { return false }
+        print(item.registeredTypeIdentifiers)
+        item.loadItem(forTypeIdentifier: uti, options: nil) { (data, error) in
+            DispatchQueue.main.async {
+                if self.store.value.broadcastEnabled, let data = data as? Data {
+                    let msg = Message(kind: .reset, action: "", state: data)
+                    Transceiver.broadcast(msg)
+                }
             }
-            }] + effects
+        }
+        return true
     }
-}
-
-
-extension UUID {
-    var short: String {
-        uuidString.split(separator: "-").first!.lowercased()
-    }
+    #endif
 }
 
 
