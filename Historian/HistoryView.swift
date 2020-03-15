@@ -53,14 +53,14 @@ struct HistoryView: View {
                     #endif
                 })
                 Spacer()
-                Button(action: { /*self.store.send(.backTapped)*/ }, label: {
+                Button(action: { self.store.send(.backTapped) }, label: {
                     #if os(iOS)
                     Image(systemName: "backward").padding()
                     #else
                     Text("←")
                     #endif
                 })
-                Button(action: { /*self.store.send(.forwardTapped)*/ }, label: {
+                Button(action: { self.store.send(.forwardTapped) }, label: {
                     #if os(iOS)
                     Image(systemName: "forward").padding()
                     #else
@@ -110,8 +110,8 @@ extension HistoryView {
         case appendStep(String, Data?)
         case selection(Step?)
         case deleteTapped
-//        case backTapped
-//        case forwardTapped
+        case backTapped
+        case forwardTapped
         case newState(Data?)
     }
 
@@ -140,27 +140,24 @@ extension HistoryView {
                         else { return [ .sync { .newState(nil) } ] }
                     state.selection = previous
                     return [ .sync { .newState(previous.resultingState) } ]
-//                case .backTapped:
-//                    guard
-//                        let current = state.selection,
-//                        let previous = state.stepBefore(current),
-//                        let newState = previous.contentViewState()
-//                        else { return [ .sync { .newState(ContentView.State()) } ] }
-//                    state.selection = previous
-//                    return [ .sync { .newState(newState) } ]
-//                case .forwardTapped:
-//                    guard let current = state.selection else { return [] }
-//                    guard
-//                        let idx = state.history.firstIndex(of: current),
-//                        idx != 0
-//                        // can't advance further than tip
-//                        else { return [] }
-//                    guard
-//                        let next = state.stepAfter(current),
-//                        let newState = next.contentViewState()
-//                        else { return [ .sync { .newState(ContentView.State()) } ] }
-//                    state.selection = next
-//                    return [ .sync { .newState(newState) } ]
+                case .backTapped:
+                    guard
+                        let current = state.selection,
+                        let previous = state.stepBefore(current)
+                        else { return [ .sync { .newState(nil) } ] }
+                    state.selection = previous
+                    return [ .sync { .newState(previous.resultingState) } ]
+                case .forwardTapped:
+                    guard let current = state.selection else { return [] }
+                    guard
+                        let idx = state.history.firstIndex(of: current),
+                        idx != 0
+                        // can't advance further than tip
+                        else { return [] }
+                    guard let next = state.stepAfter(current)
+                        else { return [ .sync { .newState(nil) } ] }
+                    state.selection = next
+                    return [ .sync { .newState(next.resultingState) } ]
                 case .newState(let state):
                     let msg = Message(kind: .reset, action: "", state: state)
                     Transceiver.broadcast(msg)
