@@ -22,14 +22,20 @@ struct Step: Identifiable, Hashable {
 struct RowView: View {
     var row: Step
     var body: some View {
-        let stack = HStack {
-            Text("\(row.index)")
-                .frame(width: 30, alignment: .trailing)
-            Text(row.action)
-        }
+        let stack =
+            Button(action: { historyStore.send(.selection(self.row)) },
+                   label: {
+                    HStack {
+                        Text("\(row.index)")
+                            .frame(width: 30, alignment: .trailing)
+                        Text(row.action)
+                    }
+            })
         #if os(macOS)
-        return stack.onDrag {
-            NSItemProvider(object: String(decoding: self.row.resultingState, as: UTF8.self) as NSString)
+        return stack
+            .buttonStyle(PlainButtonStyle())
+            .onDrag {
+                NSItemProvider(object: String(decoding: self.row.resultingState, as: UTF8.self) as NSString)
         }
         #else
         return stack
