@@ -21,24 +21,30 @@ struct Step: Identifiable, Hashable {
 
 struct RowView: View {
     var row: Step
+    var selected = false
     var body: some View {
-        let stack =
+        let button =
             Button(action: { historyStore.send(.selection(self.row)) },
                    label: {
                     HStack {
+                        #if os(iOS)
+                        Image(systemName: "arrowtriangle.right.fill")
+                            .foregroundColor(selected ? .blue : .clear)
+                        #endif
                         Text("\(row.index)")
                             .frame(width: 30, alignment: .trailing)
                         Text(row.action)
                     }
             })
+
         #if os(macOS)
-        return stack
+        return button
             .buttonStyle(PlainButtonStyle())
             .onDrag {
                 NSItemProvider(object: String(decoding: self.row.resultingState, as: UTF8.self) as NSString)
         }
         #else
-        return stack
+        return button
         #endif
     }
 }
@@ -59,7 +65,7 @@ struct HistoryView: View {
             #if os(iOS)
             List(selection: store.binding(value: \.selection, action: /Action.selection)) {
                 ForEach(store.value.history, id: \.self) {
-                    RowView(row: $0)
+                    return RowView(row: $0, selected: $0.id == self.store.value.selection?.id)
                 }
             }
             #else
