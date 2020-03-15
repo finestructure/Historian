@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		5A278030241E523100D015F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A27802F241E523100D015F2 /* Assets.xcassets */; };
 		5A278033241E523100D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A278032241E523100D015F2 /* Preview Assets.xcassets */; };
 		5A278036241E523100D015F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A278034241E523100D015F2 /* LaunchScreen.storyboard */; };
+		5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A27803E241E52FA00D015F2 /* MultipeerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = Historian;
+			packageProductDependencies = (
+				5A27803E241E52FA00D015F2 /* MultipeerKit */,
+			);
 			productName = Historian;
 			productReference = 5A278026241E522F00D015F2 /* Historian.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 5A27801D241E522F00D015F2;
+			packageReferences = (
+				5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */,
+			);
 			productRefGroup = 5A278027241E522F00D015F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/insidegui/MultipeerKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A27803E241E52FA00D015F2 /* MultipeerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */;
+			productName = MultipeerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A27801E241E522F00D015F2 /* Project object */;
 }
