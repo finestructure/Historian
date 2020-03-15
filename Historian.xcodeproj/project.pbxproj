@@ -19,6 +19,7 @@
 		5A278047241E572F00D015F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278046241E572F00D015F2 /* Message.swift */; };
 		5A278049241E577700D015F2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278048241E577700D015F2 /* HistoryView.swift */; };
 		5A27804E241E726100D015F2 /* RangeReplaceableCollection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27804D241E726100D015F2 /* RangeReplaceableCollection+ext.swift */; };
+		5A27805A241EA25C00D015F2 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278059241EA25C00D015F2 /* RowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5A278046241E572F00D015F2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5A278048241E577700D015F2 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		5A27804D241E726100D015F2 /* RangeReplaceableCollection+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+ext.swift"; sourceTree = "<group>"; };
+		5A278059241EA25C00D015F2 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				5A278048241E577700D015F2 /* HistoryView.swift */,
+				5A278059241EA25C00D015F2 /* RowView.swift */,
 			);
 			path = HistoryView;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */,
 				5A278049241E577700D015F2 /* HistoryView.swift in Sources */,
 				5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */,
+				5A27805A241EA25C00D015F2 /* RowView.swift in Sources */,
 				5A278047241E572F00D015F2 /* Message.swift in Sources */,
 				5A27804E241E726100D015F2 /* RangeReplaceableCollection+ext.swift in Sources */,
 				5A278042241E55AC00D015F2 /* Transceiver.swift in Sources */,
