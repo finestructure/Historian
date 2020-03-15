@@ -43,7 +43,28 @@ struct HistoryView: View {
     @SwiftUI.State var targeted = false
 
     var body: some View {
-        VStack {
+        let stack = VStack(alignment: .leading) {
+            #if os(macOS)
+            Text("History").font(.system(.headline)).padding([.leading, .top])
+            #else
+            Text("History").font(.system(.headline)).padding()
+            #endif
+
+            #if os(iOS)
+            List(selection: store.binding(value: \.selection, action: /Action.selection)) {
+                ForEach(store.value.history, id: \.self) {
+                    RowView(row: $0)
+                }
+            }
+            #else
+            List(selection: store.binding(value: \.selection, action: /Action.selection)) {
+                ForEach(store.value.history, id: \.self) {
+                    RowView(row: $0)
+                }
+            }
+            .onDrop(of: [uti], isTargeted: $targeted, perform: dropHandler)
+            #endif
+
             HStack {
                 Button(action: { self.store.send(.deleteTapped) }, label: {
                     #if os(iOS)
@@ -68,26 +89,15 @@ struct HistoryView: View {
                     #endif
                 })
             }
-            .padding([.leading, .top, .trailing], 6)
-
-            #if os(iOS)
-            List(selection: store.binding(value: \.selection, action: /Action.selection)) {
-                ForEach(store.value.history, id: \.self) {
-                    RowView(row: $0)
-                }
-            }
-            #else
-            List(selection: store.binding(value: \.selection, action: /Action.selection)) {
-                ForEach(store.value.history, id: \.self) {
-                    RowView(row: $0)
-                }
-            }
-            .onDrop(of: [uti], isTargeted: $targeted, perform: dropHandler)
-            #endif
-
+            .padding()
         }
-    }
 
+        #if os(macOS)
+        return stack.frame(minWidth: 500, minHeight: 300)
+        #else
+        return stack
+        #endif
+    }
 }
 
 

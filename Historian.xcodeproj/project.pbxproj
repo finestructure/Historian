@@ -71,9 +71,9 @@
 				5A278037241E523100D015F2 /* Info.plist */,
 				5A278029241E522F00D015F2 /* AppDelegate.swift */,
 				5A27802D241E522F00D015F2 /* ContentView.swift */,
-				5A278048241E577700D015F2 /* HistoryView.swift */,
 				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
 				5A27802F241E523100D015F2 /* Assets.xcassets */,
+				5A278050241E872300D015F2 /* HistoryView */,
 				5A278034241E523100D015F2 /* LaunchScreen.storyboard */,
 				5A278031241E523100D015F2 /* Preview Content */,
 				5A278040241E559700D015F2 /* Transceiver */,
@@ -97,6 +97,14 @@
 				5A278041241E55AC00D015F2 /* Transceiver.swift */,
 			);
 			path = Transceiver;
+			sourceTree = "<group>";
+		};
+		5A278050241E872300D015F2 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				5A278048241E577700D015F2 /* HistoryView.swift */,
+			);
+			path = HistoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

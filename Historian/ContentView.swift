@@ -29,9 +29,6 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("History").font(.system(.headline)).padding()
-            HistoryView(store: historyStore)
-
             Text("Peers").font(.system(.headline)).padding()
             List {
                 ForEach(dataSource.availablePeers) { peer in
@@ -53,8 +50,16 @@ struct ContentView: View {
                 }
             }
             .frame(height: 150)
+
+            HistoryView(store: historyStore)
         }
     }
 
 }
 
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView().environmentObject(Transceiver.dataSource)
+    }
+}
