@@ -6,11 +6,7 @@
 //  Copyright © 2020 finestructure. All rights reserved.
 //
 
-import HistoryView
 import UIKit
-
-
-var historyStore = HistoryView.store(history: [], broadcastEnabled: true)
 
 
 @UIApplicationMain

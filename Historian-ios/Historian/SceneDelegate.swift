@@ -10,6 +10,10 @@ import HistoryView
 import UIKit
 import SwiftUI
 
+
+var historyStore = HistoryView.store(history: [], broadcastEnabled: true)
+
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
