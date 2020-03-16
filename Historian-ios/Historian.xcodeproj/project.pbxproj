@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278029241E522F00D015F2 /* AppDelegate.swift */; };
 		5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27802B241E522F00D015F2 /* SceneDelegate.swift */; };
-		5A27802E241E522F00D015F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27802D241E522F00D015F2 /* ContentView.swift */; };
 		5A278030241E523100D015F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A27802F241E523100D015F2 /* Assets.xcassets */; };
 		5A278033241E523100D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A278032241E523100D015F2 /* Preview Assets.xcassets */; };
 		5A278036241E523100D015F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A278034241E523100D015F2 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		5A278026241E522F00D015F2 /* Historian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Historian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A278029241E522F00D015F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A27802B241E522F00D015F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5A27802D241E522F00D015F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A27802F241E523100D015F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A278032241E523100D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A278035241E523100D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			children = (
 				5A278037241E523100D015F2 /* Info.plist */,
 				5A278029241E522F00D015F2 /* AppDelegate.swift */,
-				5A27802D241E522F00D015F2 /* ContentView.swift */,
 				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
 				5A27802F241E523100D015F2 /* Assets.xcassets */,
 				5A278034241E523100D015F2 /* LaunchScreen.storyboard */,
@@ -164,7 +161,6 @@
 			files = (
 				5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */,
 				5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */,
-				5A27802E241E522F00D015F2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,8 +376,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/finestructure/HistoryView.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				kind = revision;
+				revision = a20f9a4041c174730ef9774acb1cd99a9a5e4ed9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
