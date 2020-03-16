@@ -17,30 +17,33 @@ struct RowView: View {
     @ObservedObject var store: Store<State, Action>
 
     var body: some View {
-        let button =
-            Button(action: { self.store.send(.rowTapped) },
-                   label: {
-                    HStack {
-                        #if os(iOS)
-                        Image(systemName: "arrowtriangle.right.fill")
-                            .foregroundColor(self.store.value.selected ? .blue : .clear)
-                        #endif
-                        Text("\(self.store.value.step.id)")
-                            .frame(width: 30, alignment: .trailing)
-                        Text(self.store.value.step.action)
-                    }
-            })
-
         #if os(macOS)
-        return button
-            .buttonStyle(PlainButtonStyle())
-            .onDrag {
-                NSItemProvider(object: String(decoding: self.store.value.step.resultingState,
-                                              as: UTF8.self) as NSString)
+        let view = HStack {
+            Text("\(self.store.value.step.id)")
+                .frame(width: 30, alignment: .trailing)
+            Text(self.store.value.step.action)
+        }
+        .onDrag {
+            NSItemProvider(object: String(decoding: self.store.value.step.resultingState,
+                                          as: UTF8.self) as NSString)
         }
         #else
-        return button
+        let view = HStack {
+                Button(action: { self.store.send(.rowTapped) },
+                       label: {
+                        HStack {
+                            #if os(iOS)
+                            Image(systemName: "arrowtriangle.right.fill")
+                                .foregroundColor(self.store.value.selected ? .blue : .clear)
+                            #endif
+                            Text("\(self.store.value.step.id)")
+                                .frame(width: 30, alignment: .trailing)
+                            Text(self.store.value.step.action)
+                        }
+                })
+        }
         #endif
+        return view
     }
 }
 
