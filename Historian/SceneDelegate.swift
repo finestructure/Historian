@@ -6,6 +6,7 @@
 //  Copyright © 2020 finestructure. All rights reserved.
 //
 
+import HistoryView
 import UIKit
 import SwiftUI
 
@@ -19,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        Transceiver.receive(Message.self) { msg in
+        Transceiver.shared.receive(Message.self) { msg in
             historyStore.send(HistoryView.Action.appendStep("\(msg.action)", msg.state))
         }
-        Transceiver.resume()
+        Transceiver.shared.resume()
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(Transceiver.dataSource)

@@ -6,9 +6,10 @@
 //  Copyright © 2020 finestructure. All rights reserved.
 //
 
-import SwiftUI
-import MultipeerKit
 import Combine
+import HistoryView
+import MultipeerKit
+import SwiftUI
 
 final class ViewModel: ObservableObject {
     @Published var message: String = ""
