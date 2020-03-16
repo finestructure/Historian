@@ -3,21 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5A2780B6241F911A00D015F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780B5241F911A00D015F2 /* AppDelegate.swift */; };
-		5A2780B8241F911A00D015F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780B7241F911A00D015F2 /* ContentView.swift */; };
 		5A2780BA241F911B00D015F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780B9241F911B00D015F2 /* Assets.xcassets */; };
 		5A2780BD241F911B00D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780BC241F911B00D015F2 /* Preview Assets.xcassets */; };
 		5A2780C0241F911B00D015F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780BE241F911B00D015F2 /* Main.storyboard */; };
+		5A2780CA241F942E00D015F2 /* HistoryView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2780C9241F942E00D015F2 /* HistoryView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5A2780B2241F911A00D015F2 /* Historian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Historian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2780B5241F911A00D015F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A2780B7241F911A00D015F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A2780B9241F911B00D015F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A2780BC241F911B00D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A2780BF241F911B00D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2780CA241F942E00D015F2 /* HistoryView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				5A2780B5241F911A00D015F2 /* AppDelegate.swift */,
-				5A2780B7241F911A00D015F2 /* ContentView.swift */,
 				5A2780B9241F911B00D015F2 /* Assets.xcassets */,
 				5A2780BE241F911B00D015F2 /* Main.storyboard */,
 				5A2780C1241F911B00D015F2 /* Info.plist */,
@@ -90,6 +89,9 @@
 			dependencies = (
 			);
 			name = Historian;
+			packageProductDependencies = (
+				5A2780C9241F942E00D015F2 /* HistoryView */,
+			);
 			productName = Historian;
 			productReference = 5A2780B2241F911A00D015F2 /* Historian.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +120,9 @@
 				Base,
 			);
 			mainGroup = 5A2780A9241F911A00D015F2;
+			packageReferences = (
+				5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */,
+			);
 			productRefGroup = 5A2780B3241F911A00D015F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,7 +150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A2780B8241F911A00D015F2 /* ContentView.swift in Sources */,
 				5A2780B6241F911A00D015F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +349,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/finestructure/HistoryView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A2780C9241F942E00D015F2 /* HistoryView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */;
+			productName = HistoryView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A2780AA241F911A00D015F2 /* Project object */;
 }

@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CompArch",
+        "repositoryURL": "https://github.com/finestructure/CompArch",
+        "state": {
+          "branch": null,
+          "revision": "88f594743393962621083f7c45467940ca8aa7d1",
+          "version": "0.7.1"
+        }
+      },
+      {
+        "package": "HistoryView",
+        "repositoryURL": "https://github.com/finestructure/HistoryView",
+        "state": {
+          "branch": null,
+          "revision": "7c26fddd83a30bb7fcb0b8e565d40b8028fe5218",
+          "version": "0.2.1"
+        }
+      },
+      {
+        "package": "MultipeerKit",
+        "repositoryURL": "https://github.com/insidegui/MultipeerKit",
+        "state": {
+          "branch": null,
+          "revision": "3f430bc28e1426ba42cdaa8b19fb4d89ce6d1c3b",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "CasePaths",
+        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths",
+        "state": {
+          "branch": null,
+          "revision": "a9c1e05518b6d95cf5844d823020376f2b6ff842",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

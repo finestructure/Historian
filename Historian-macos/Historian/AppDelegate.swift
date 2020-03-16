@@ -7,7 +7,12 @@
 //
 
 import Cocoa
+import HistoryView
 import SwiftUI
+
+
+var historyStore = HistoryView.store(history: [], broadcastEnabled: true)
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -16,8 +21,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        Transceiver.shared.receive(Message.self) { msg in
+            historyStore.send(HistoryView.Action.appendStep("\(msg.action)", msg.state))
+        }
+        Transceiver.shared.resume()
+
+        let contentView = HistoryView(store: historyStore)
+            .environmentObject(Transceiver.dataSource)
 
         // Create the window and set the content view. 
         window = NSWindow(
