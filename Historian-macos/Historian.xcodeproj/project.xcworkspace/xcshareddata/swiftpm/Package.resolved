@@ -12,11 +12,11 @@
       },
       {
         "package": "HistoryView",
-        "repositoryURL": "https://github.com/finestructure/HistoryView.git",
+        "repositoryURL": "https://github.com/finestructure/HistoryView",
         "state": {
           "branch": null,
-          "revision": "b8120452e5713d59a868d4b0823bfe74b3c62103",
-          "version": "0.1.0"
+          "revision": "7c26fddd83a30bb7fcb0b8e565d40b8028fe5218",
+          "version": "0.2.1"
         }
       },
       {

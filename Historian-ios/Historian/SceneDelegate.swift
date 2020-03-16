@@ -10,6 +10,10 @@ import HistoryView
 import UIKit
 import SwiftUI
 
+
+var historyStore = HistoryView.store(history: [], broadcastEnabled: true)
+
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -26,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Transceiver.shared.resume()
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView().environmentObject(Transceiver.dataSource)
+        let contentView = HistoryView(store: historyStore)
+            .environmentObject(Transceiver.dataSource)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

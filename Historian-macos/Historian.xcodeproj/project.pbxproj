@@ -7,76 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278029241E522F00D015F2 /* AppDelegate.swift */; };
-		5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27802B241E522F00D015F2 /* SceneDelegate.swift */; };
-		5A27802E241E522F00D015F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27802D241E522F00D015F2 /* ContentView.swift */; };
-		5A278030241E523100D015F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A27802F241E523100D015F2 /* Assets.xcassets */; };
-		5A278033241E523100D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A278032241E523100D015F2 /* Preview Assets.xcassets */; };
-		5A278036241E523100D015F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A278034241E523100D015F2 /* LaunchScreen.storyboard */; };
-		5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A27803E241E52FA00D015F2 /* MultipeerKit */; };
-		5A278045241E55E900D015F2 /* CompArch in Frameworks */ = {isa = PBXBuildFile; productRef = 5A278044241E55E900D015F2 /* CompArch */; };
-		5A278061241F64E600D015F2 /* HistoryView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A278060241F64E600D015F2 /* HistoryView */; };
+		5A2780B6241F911A00D015F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780B5241F911A00D015F2 /* AppDelegate.swift */; };
+		5A2780BA241F911B00D015F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780B9241F911B00D015F2 /* Assets.xcassets */; };
+		5A2780BD241F911B00D015F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780BC241F911B00D015F2 /* Preview Assets.xcassets */; };
+		5A2780C0241F911B00D015F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2780BE241F911B00D015F2 /* Main.storyboard */; };
+		5A2780CA241F942E00D015F2 /* HistoryView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2780C9241F942E00D015F2 /* HistoryView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A278026241E522F00D015F2 /* Historian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Historian.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A278029241E522F00D015F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A27802B241E522F00D015F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5A27802D241E522F00D015F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5A27802F241E523100D015F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5A278032241E523100D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5A278035241E523100D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5A278037241E523100D015F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A2780B2241F911A00D015F2 /* Historian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Historian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2780B5241F911A00D015F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5A2780B9241F911B00D015F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A2780BC241F911B00D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5A2780BF241F911B00D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A2780C1241F911B00D015F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A2780C2241F911B00D015F2 /* Historian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Historian.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5A278023241E522F00D015F2 /* Frameworks */ = {
+		5A2780AF241F911A00D015F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A278061241F64E600D015F2 /* HistoryView in Frameworks */,
-				5A27803F241E52FA00D015F2 /* MultipeerKit in Frameworks */,
-				5A278045241E55E900D015F2 /* CompArch in Frameworks */,
+				5A2780CA241F942E00D015F2 /* HistoryView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A27801D241E522F00D015F2 = {
+		5A2780A9241F911A00D015F2 = {
 			isa = PBXGroup;
 			children = (
-				5A278028241E522F00D015F2 /* Historian */,
-				5A278027241E522F00D015F2 /* Products */,
+				5A2780B4241F911A00D015F2 /* Historian */,
+				5A2780B3241F911A00D015F2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5A278027241E522F00D015F2 /* Products */ = {
+		5A2780B3241F911A00D015F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A278026241E522F00D015F2 /* Historian.app */,
+				5A2780B2241F911A00D015F2 /* Historian.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A278028241E522F00D015F2 /* Historian */ = {
+		5A2780B4241F911A00D015F2 /* Historian */ = {
 			isa = PBXGroup;
 			children = (
-				5A278037241E523100D015F2 /* Info.plist */,
-				5A278029241E522F00D015F2 /* AppDelegate.swift */,
-				5A27802D241E522F00D015F2 /* ContentView.swift */,
-				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
-				5A27802F241E523100D015F2 /* Assets.xcassets */,
-				5A278034241E523100D015F2 /* LaunchScreen.storyboard */,
-				5A278031241E523100D015F2 /* Preview Content */,
+				5A2780B5241F911A00D015F2 /* AppDelegate.swift */,
+				5A2780B9241F911B00D015F2 /* Assets.xcassets */,
+				5A2780BE241F911B00D015F2 /* Main.storyboard */,
+				5A2780C1241F911B00D015F2 /* Info.plist */,
+				5A2780C2241F911B00D015F2 /* Historian.entitlements */,
+				5A2780BB241F911B00D015F2 /* Preview Content */,
 			);
 			path = Historian;
 			sourceTree = "<group>";
 		};
-		5A278031241E523100D015F2 /* Preview Content */ = {
+		5A2780BB241F911B00D015F2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5A278032241E523100D015F2 /* Preview Assets.xcassets */,
+				5A2780BC241F911B00D015F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -84,13 +76,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A278025241E522F00D015F2 /* Historian */ = {
+		5A2780B1241F911A00D015F2 /* Historian */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A27803A241E523100D015F2 /* Build configuration list for PBXNativeTarget "Historian" */;
+			buildConfigurationList = 5A2780C5241F911B00D015F2 /* Build configuration list for PBXNativeTarget "Historian" */;
 			buildPhases = (
-				5A278022241E522F00D015F2 /* Sources */,
-				5A278023241E522F00D015F2 /* Frameworks */,
-				5A278024241E522F00D015F2 /* Resources */,
+				5A2780AE241F911A00D015F2 /* Sources */,
+				5A2780AF241F911A00D015F2 /* Frameworks */,
+				5A2780B0241F911A00D015F2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -98,30 +90,28 @@
 			);
 			name = Historian;
 			packageProductDependencies = (
-				5A27803E241E52FA00D015F2 /* MultipeerKit */,
-				5A278044241E55E900D015F2 /* CompArch */,
-				5A278060241F64E600D015F2 /* HistoryView */,
+				5A2780C9241F942E00D015F2 /* HistoryView */,
 			);
 			productName = Historian;
-			productReference = 5A278026241E522F00D015F2 /* Historian.app */;
+			productReference = 5A2780B2241F911A00D015F2 /* Historian.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5A27801E241E522F00D015F2 /* Project object */ = {
+		5A2780AA241F911A00D015F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = finestructure;
 				TargetAttributes = {
-					5A278025241E522F00D015F2 = {
+					5A2780B1241F911A00D015F2 = {
 						CreatedOnToolsVersion = 11.4;
 					};
 				};
 			};
-			buildConfigurationList = 5A278021241E522F00D015F2 /* Build configuration list for PBXProject "Historian" */;
+			buildConfigurationList = 5A2780AD241F911A00D015F2 /* Build configuration list for PBXProject "Historian" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -129,60 +119,56 @@
 				en,
 				Base,
 			);
-			mainGroup = 5A27801D241E522F00D015F2;
+			mainGroup = 5A2780A9241F911A00D015F2;
 			packageReferences = (
-				5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */,
-				5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */,
-				5A27805F241F64E600D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */,
+				5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */,
 			);
-			productRefGroup = 5A278027241E522F00D015F2 /* Products */;
+			productRefGroup = 5A2780B3241F911A00D015F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A278025241E522F00D015F2 /* Historian */,
+				5A2780B1241F911A00D015F2 /* Historian */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5A278024241E522F00D015F2 /* Resources */ = {
+		5A2780B0241F911A00D015F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A278036241E523100D015F2 /* LaunchScreen.storyboard in Resources */,
-				5A278033241E523100D015F2 /* Preview Assets.xcassets in Resources */,
-				5A278030241E523100D015F2 /* Assets.xcassets in Resources */,
+				5A2780C0241F911B00D015F2 /* Main.storyboard in Resources */,
+				5A2780BD241F911B00D015F2 /* Preview Assets.xcassets in Resources */,
+				5A2780BA241F911B00D015F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5A278022241E522F00D015F2 /* Sources */ = {
+		5A2780AE241F911A00D015F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A27802A241E522F00D015F2 /* AppDelegate.swift in Sources */,
-				5A27802C241E522F00D015F2 /* SceneDelegate.swift in Sources */,
-				5A27802E241E522F00D015F2 /* ContentView.swift in Sources */,
+				5A2780B6241F911A00D015F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5A278034241E523100D015F2 /* LaunchScreen.storyboard */ = {
+		5A2780BE241F911B00D015F2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A278035241E523100D015F2 /* Base */,
+				5A2780BF241F911B00D015F2 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5A278038241E523100D015F2 /* Debug */ = {
+		5A2780C3241F911B00D015F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,17 +218,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		5A278039241E523100D015F2 /* Release */ = {
+		5A2780C4241F911B00D015F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -286,73 +272,78 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		5A27803B241E523100D015F2 /* Debug */ = {
+		5A2780C6241F911B00D015F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Historian/Historian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Historian/Preview Content\"";
 				DEVELOPMENT_TEAM = A42K5AU657;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Historian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finestructure.Historian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		5A27803C241E523100D015F2 /* Release */ = {
+		5A2780C7241F911B00D015F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Historian/Historian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Historian/Preview Content\"";
 				DEVELOPMENT_TEAM = A42K5AU657;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Historian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = co.finestructure.Historian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A278021241E522F00D015F2 /* Build configuration list for PBXProject "Historian" */ = {
+		5A2780AD241F911A00D015F2 /* Build configuration list for PBXProject "Historian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A278038241E523100D015F2 /* Debug */,
-				5A278039241E523100D015F2 /* Release */,
+				5A2780C3241F911B00D015F2 /* Debug */,
+				5A2780C4241F911B00D015F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A27803A241E523100D015F2 /* Build configuration list for PBXNativeTarget "Historian" */ = {
+		5A2780C5241F911B00D015F2 /* Build configuration list for PBXNativeTarget "Historian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A27803B241E523100D015F2 /* Debug */,
-				5A27803C241E523100D015F2 /* Release */,
+				5A2780C6241F911B00D015F2 /* Debug */,
+				5A2780C7241F911B00D015F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -360,25 +351,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */ = {
+		5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/insidegui/MultipeerKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
-		5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/finestructure/CompArch";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.1;
-			};
-		};
-		5A27805F241F64E600D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/finestructure/HistoryView.git";
+			repositoryURL = "https://github.com/finestructure/HistoryView";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.0;
@@ -387,22 +362,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5A27803E241E52FA00D015F2 /* MultipeerKit */ = {
+		5A2780C9241F942E00D015F2 /* HistoryView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5A27803D241E52FA00D015F2 /* XCRemoteSwiftPackageReference "MultipeerKit" */;
-			productName = MultipeerKit;
-		};
-		5A278044241E55E900D015F2 /* CompArch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A278043241E55E900D015F2 /* XCRemoteSwiftPackageReference "CompArch" */;
-			productName = CompArch;
-		};
-		5A278060241F64E600D015F2 /* HistoryView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A27805F241F64E600D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */;
+			package = 5A2780C8241F942E00D015F2 /* XCRemoteSwiftPackageReference "HistoryView" */;
 			productName = HistoryView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5A27801E241E522F00D015F2 /* Project object */;
+	rootObject = 5A2780AA241F911A00D015F2 /* Project object */;
 }
