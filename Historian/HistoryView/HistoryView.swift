@@ -23,6 +23,18 @@ struct HistoryView: View {
     @ObservedObject var store: Store<State, Action>
     @SwiftUI.State var targeted = false
 
+    func rowView(for step: Step) -> AnyView {
+        guard let step = store.value.history.first(where: { $0.id == step.id }) else {
+            return AnyView(EmptyView())
+        }
+        let row = RowView.State(step: step, selected: step.id == store.value.selection?.id)
+        return AnyView(
+            RowView(store: self.store.view(
+                value: { _ in row },
+                action: { .row(IdentifiedRow(id: row.id, action: $0)) }))
+        )
+    }
+
     var body: some View {
         let stack = VStack(alignment: .leading) {
             #if os(macOS)
@@ -33,14 +45,14 @@ struct HistoryView: View {
 
             #if os(iOS)
             List(selection: store.binding(value: \.selection, action: /Action.selection)) {
-                ForEach(store.value.history, id: \.self) {
-                    return RowView(row: $0, selected: $0.id == self.store.value.selection?.id)
+                ForEach(store.value.history.reversed()) {
+                    self.rowView(for: $0)
                 }
             }
             #else
             List(selection: store.binding(value: \.selection, action: /Action.selection)) {
-                ForEach(store.value.history, id: \.self) {
-                    RowView(row: $0)
+                ForEach(store.value.history.reversed(), id: \.self) {
+                    self.rowView(for: $0)
                 }
             }
             .onDrop(of: [uti], isTargeted: $targeted, perform: dropHandler)
@@ -88,7 +100,7 @@ extension HistoryView {
         var selection: Step? = nil
         var broadcastEnabled = false
 
-        func stepBefore(_ step: Step) -> Step? {
+        func stepAfter(_ step: Step) -> Step? {
             guard
                 let idx = history.firstIndex(of: step),
                 case let nextIdx = history.index(after: idx),
@@ -97,7 +109,7 @@ extension HistoryView {
             return history[nextIdx]
         }
 
-        func stepAfter(_ step: Step) -> Step? {
+        func stepBefore(_ step: Step) -> Step? {
             guard
                 let idx = history.firstIndex(of: step),
                 case let prevIdx = history.index(before: idx),
@@ -114,6 +126,7 @@ extension HistoryView {
         case backTapped
         case forwardTapped
         case newState(Data?)
+        case row(IdentifiedRow)
     }
 
     static var reducer: Reducer<State, Action> {
@@ -123,7 +136,7 @@ extension HistoryView {
                     let newStep = Step(index: state.history.count,
                                        action: stepAction,
                                        resultingState: postActionState)
-                    state.history.insert(newStep, at: 0)
+                    state.history.append(newStep)
                     state.selection = newStep
                     return []
                 case .appendStep(_, .none):
@@ -152,7 +165,7 @@ extension HistoryView {
                     guard let current = state.selection else { return [] }
                     guard
                         let idx = state.history.firstIndex(of: current),
-                        idx != 0
+                        idx != state.history.count - 1
                         // can't advance further than tip
                         else { return [] }
                     guard let next = state.stepAfter(current)
@@ -165,6 +178,11 @@ extension HistoryView {
                         Transceiver.broadcast(msg)
                     }
                     return []
+                case .row((let id, .rowTapped)):
+                    guard let step = state.history.first(where: { $0.id == id })
+                        else { return [] }
+                    state.selection = step
+                    return [ .sync { .newState(step.resultingState) } ]
             }
         }
     }

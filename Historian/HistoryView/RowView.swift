@@ -6,24 +6,28 @@
 //  Copyright © 2020 finestructure. All rights reserved.
 //
 
+import CompArch
 import SwiftUI
 
 
+typealias IdentifiedRow = Identified<RowView.State, RowView.Action>
+
+
 struct RowView: View {
-    var row: Step
-    var selected = false
+    @ObservedObject var store: Store<State, Action>
+
     var body: some View {
         let button =
-            Button(action: { historyStore.send(.selection(self.row)) },
+            Button(action: { self.store.send(.rowTapped) },
                    label: {
                     HStack {
                         #if os(iOS)
                         Image(systemName: "arrowtriangle.right.fill")
-                            .foregroundColor(selected ? .blue : .clear)
+                            .foregroundColor(self.store.value.selected ? .blue : .clear)
                         #endif
-                        Text("\(row.index)")
+                        Text("\(self.store.value.step.id)")
                             .frame(width: 30, alignment: .trailing)
-                        Text(row.action)
+                        Text(self.store.value.step.action)
                     }
             })
 
@@ -39,4 +43,16 @@ struct RowView: View {
     }
 }
 
+
+extension RowView {
+    struct State: Identifiable {
+        var id: Int { step.id }
+        var step: Step
+        var selected = false
+    }
+
+    enum Action {
+        case rowTapped
+    }
+}
 
