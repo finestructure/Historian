@@ -222,24 +222,6 @@ extension HistoryView {
 }
 
 
-#if os(macOS)
-let uti = "public.utf8-plain-text"
-
-func dropHandler(_ items: [NSItemProvider]) -> Bool {
-    guard let item = items.first else { return false }
-    print(item.registeredTypeIdentifiers)
-    item.loadItem(forTypeIdentifier: uti, options: nil) { (data, error) in
-        DispatchQueue.main.async {
-            if let data = data as? Data {
-                historyStore.send(.newState(data))
-            }
-        }
-    }
-    return true
-}
-#endif
-
-
 extension HistoryView {
     struct Sample {
         static var history: [Step] {

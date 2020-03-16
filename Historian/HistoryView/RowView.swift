@@ -35,7 +35,8 @@ struct RowView: View {
         return button
             .buttonStyle(PlainButtonStyle())
             .onDrag {
-                NSItemProvider(object: String(decoding: self.row.resultingState, as: UTF8.self) as NSString)
+                NSItemProvider(object: String(decoding: self.store.value.step.resultingState,
+                                              as: UTF8.self) as NSString)
         }
         #else
         return button
