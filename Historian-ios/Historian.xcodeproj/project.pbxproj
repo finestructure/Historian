@@ -376,8 +376,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/finestructure/HistoryView.git";
 			requirement = {
-				kind = revision;
-				revision = a20f9a4041c174730ef9774acb1cd99a9a5e4ed9;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
