@@ -16,15 +16,29 @@ public typealias IdentifiedRow = Identified<RowView.State, RowView.Action>
 public struct RowView: View {
     @ObservedObject var store: Store<State, Action>
 
+    var indexLabel: String {
+        switch self.store.value.step {
+            case .initial: return "0"
+            case .step(let step): return "\(step.index)"
+        }
+    }
+
+    var actionLabel: String {
+        switch self.store.value.step {
+            case .initial: return "initial"
+            case .step(let step): return step.action
+        }
+    }
+
     public var body: some View {
         #if os(macOS)
         let view = HStack {
-            Text("\(self.store.value.step.id)")
+            Text(indexLabel)
                 .frame(width: 30, alignment: .trailing)
-            Text(self.store.value.step.action)
+            Text(actionLabel)
         }
         .onDrag {
-            NSItemProvider(object: String(decoding: self.store.value.step.resultingState,
+            NSItemProvider(object: String(decoding: self.store.value.step.resultingState ?? Data(),
                                           as: UTF8.self) as NSString)
         }
         #else
@@ -50,7 +64,7 @@ public struct RowView: View {
 
 extension RowView {
     public struct State: Identifiable {
-        public var id: Int { step.id }
+        public var id: Step { step }
         var step: Step
         var selected = false
     }

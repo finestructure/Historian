@@ -56,6 +56,9 @@ extension HistoryView {
         return { state, action in
             switch action {
                 case let .appendStep(stepAction, .some(postActionState)):
+                    if state.history.isEmpty {
+                        state.history.append(.initial)
+                    }
                     let newStep = Step(index: state.history.count,
                                        action: stepAction,
                                        resultingState: postActionState)
@@ -70,13 +73,19 @@ extension HistoryView {
                     guard let step = step else { return [] }
                     return [ .sync { .newState(step.resultingState) } ]
                 case .deleteTapped:
-                    guard let current = state.selection else { return [] }
+                    guard
+                        let current = state.selection,
+                        current != .initial
+                        else { return [] }
                     defer { state.history.removeFirst(value: current) }
                     let previous = state.stepBefore(current)
                     state.selection = previous
                     return [ .sync { .newState(previous?.resultingState) } ]
                 case .backTapped:
-                    guard let current = state.selection else { return [] }
+                    guard
+                        let current = state.selection,
+                        current != .initial
+                        else { return [] }
                     let previous = state.stepBefore(current)
                     state.selection = previous
                     return [ .sync { .newState(previous?.resultingState) } ]
@@ -96,9 +105,7 @@ extension HistoryView {
                         Transceiver.shared.broadcast(msg)
                     }
                     return []
-                case .row((let id, .rowTapped)):
-                    guard let step = state.history.first(where: { $0.id == id })
-                        else { return [] }
+                case .row((let step, .rowTapped)):
                     state.selection = step
                     return [ .sync { .newState(step.resultingState) } ]
             }
