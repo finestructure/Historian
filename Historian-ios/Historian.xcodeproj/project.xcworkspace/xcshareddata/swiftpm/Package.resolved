@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/finestructure/CompArch",
         "state": {
           "branch": null,
-          "revision": "88f594743393962621083f7c45467940ca8aa7d1",
-          "version": "0.7.1"
+          "revision": "b3bbb247b18b29549e905e31e5a19ebc46d1cefb",
+          "version": "0.7.2"
+        }
+      },
+      {
+        "package": "HistoryTransceiver",
+        "repositoryURL": "https://github.com/finestructure/HistoryTransceiver",
+        "state": {
+          "branch": null,
+          "revision": "fd88668d1648e5f7f61843e676ecbe4cafa4a642",
+          "version": "0.0.3"
         }
       },
       {

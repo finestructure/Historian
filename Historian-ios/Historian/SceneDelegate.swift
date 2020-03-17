@@ -6,6 +6,7 @@
 //  Copyright © 2020 finestructure. All rights reserved.
 //
 
+import HistoryTransceiver
 import UIKit
 import SwiftUI
 
