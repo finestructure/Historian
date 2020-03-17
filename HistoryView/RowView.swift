@@ -50,9 +50,9 @@ public struct RowView: View {
                             Image(systemName: "arrowtriangle.right.fill")
                                 .foregroundColor(self.store.value.selected ? .blue : .clear)
                             #endif
-                            Text("\(self.store.value.step.id)")
+                            Text(indexLabel)
                                 .frame(width: 30, alignment: .trailing)
-                            Text(self.store.value.step.action)
+                            Text(actionLabel)
                         }
                 })
         }
