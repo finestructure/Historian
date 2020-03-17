@@ -8,6 +8,7 @@
 
 import CasePaths
 import CompArch
+import HistoryTransceiver
 import MultipeerKit
 import SwiftUI
 
@@ -150,7 +151,7 @@ extension HistoryView {
         item.loadItem(forTypeIdentifier: uti, options: nil) { (data, error) in
             DispatchQueue.main.async {
                 if self.store.value.broadcastEnabled, let data = data as? Data {
-                    let msg = Message(kind: .reset, action: "", state: data)
+                    let msg = Message(command: .reset, action: "", state: data)
                     Transceiver.shared.broadcast(msg)
                 }
             }

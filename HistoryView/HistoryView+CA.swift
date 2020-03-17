@@ -5,6 +5,7 @@
 //  Created by Sven A. Schmidt on 16/03/2020.
 //
 
+import HistoryTransceiver
 import CompArch
 import Foundation
 
@@ -101,7 +102,7 @@ extension HistoryView {
                     return [ .sync { .newState(next.resultingState) } ]
                 case .newState(let newState):
                     if state.broadcastEnabled {
-                        let msg = Message(kind: .reset, action: "", state: newState)
+                        let msg = Message(command: .reset, action: "", state: newState)
                         Transceiver.shared.broadcast(msg)
                     }
                     return []
