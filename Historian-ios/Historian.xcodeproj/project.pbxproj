@@ -32,6 +32,7 @@
 		5A278032241E523100D015F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A278035241E523100D015F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A278037241E523100D015F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A4871102420FDBD00C05EBE /* Historian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Historian.entitlements; sourceTree = "<group>"; };
 		5A64C3912420F1F400B167C3 /* Transceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transceiver.swift; sourceTree = "<group>"; };
 		5A64C3922420F1F400B167C3 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5A64C3932420F1F400B167C3 /* HistoryView+CA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HistoryView+CA.swift"; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		5A278028241E522F00D015F2 /* Historian */ = {
 			isa = PBXGroup;
 			children = (
+				5A4871102420FDBD00C05EBE /* Historian.entitlements */,
 				5A278037241E523100D015F2 /* Info.plist */,
 				5A278029241E522F00D015F2 /* AppDelegate.swift */,
 				5A27802B241E522F00D015F2 /* SceneDelegate.swift */,
@@ -341,7 +343,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Historian/Historian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Historian/Preview Content\"";
 				DEVELOPMENT_TEAM = A42K5AU657;
 				ENABLE_PREVIEWS = YES;
@@ -352,6 +356,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finestructure.Historian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,7 +366,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Historian/Historian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Historian/Preview Content\"";
 				DEVELOPMENT_TEAM = A42K5AU657;
 				ENABLE_PREVIEWS = YES;
@@ -372,6 +379,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.finestructure.Historian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
