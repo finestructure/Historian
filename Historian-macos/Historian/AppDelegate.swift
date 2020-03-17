@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import HistoryView
 import SwiftUI
 
 

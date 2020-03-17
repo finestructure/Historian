@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "HistoryView",
-        "repositoryURL": "https://github.com/finestructure/HistoryView.git",
-        "state": {
-          "branch": null,
-          "revision": "5c387ced86b5472dd6cfee427318c94959de098e",
-          "version": "0.3.0"
-        }
-      },
-      {
         "package": "MultipeerKit",
         "repositoryURL": "https://github.com/insidegui/MultipeerKit",
         "state": {

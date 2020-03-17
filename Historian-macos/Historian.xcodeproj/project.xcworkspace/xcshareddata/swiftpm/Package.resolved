@@ -6,17 +6,8 @@
         "repositoryURL": "https://github.com/finestructure/CompArch",
         "state": {
           "branch": null,
-          "revision": "88f594743393962621083f7c45467940ca8aa7d1",
-          "version": "0.7.1"
-        }
-      },
-      {
-        "package": "HistoryView",
-        "repositoryURL": "https://github.com/finestructure/HistoryView",
-        "state": {
-          "branch": null,
-          "revision": "5c387ced86b5472dd6cfee427318c94959de098e",
-          "version": "0.3.0"
+          "revision": "b3bbb247b18b29549e905e31e5a19ebc46d1cefb",
+          "version": "0.7.2"
         }
       },
       {
