@@ -132,12 +132,11 @@ extension View {
     func _onDrop(of supportedTypes: [String],
                  isTargeted targeted: Binding<Bool>?,
                  perform action: @escaping ([NSItemProvider]) -> Bool) -> some View {
-
-        if #available(iOS 13.4, macOS 10.15, *) {
-            return AnyView(self.onDrop(of: supportedTypes, isTargeted: targeted, perform: action))
-        } else {
-            return AnyView(self)
-        }
+        #if os(macOS)
+        return AnyView(self.onDrop(of: supportedTypes, isTargeted: targeted, perform: action))
+        #else
+        return AnyView(self)
+        #endif
     }
 }
 
