@@ -4,7 +4,7 @@ Historian is an app state viewer and manipulator for apps written in [Pointfree.
 
 <img width="1453" alt="Screenshot 2020-03-22 at 18 24 03" src="https://user-images.githubusercontent.com/65520/77255797-5fee3000-6c6a-11ea-898c-472dda92a862.png">
 
-For more information see this [introductory blog post](FIXME: add link).
+For more information see this [introductory blog post](https://finestructure.co/blog/2020/3/30/state-of-the-app-state-surfing).
 
 ## OS variants
 
